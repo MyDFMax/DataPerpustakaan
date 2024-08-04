@@ -20,6 +20,7 @@ Route::prefix('data_perpustakaan')->group(function () {
 
     // This will automatically create multiple routes for the 'Perpustakaan' resource or in your case, routes to handle book related requests. The standard routes created for this would be create, read, update, delete and others
     Route::resource('library', BookController::class)->names('book');
+    Route::get('book/borrow/{book}', [BookController::class, 'borrow'])->name('book.borrow');
     Route::resource('borrow', BorrowController::class)->names('borrow');
     Route::post('borrow/approval{borrow}', [BorrowController::class, 'approval'])->name('borrow.approval');
     Route::resource('published', PublishedController::class)->names('published');

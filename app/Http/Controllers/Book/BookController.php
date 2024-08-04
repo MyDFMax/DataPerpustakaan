@@ -13,6 +13,23 @@ use Illuminate\Support\Facades\Log;
 
 class BookController extends Controller
 {
+
+
+  /**
+   * Display a listing of the resource.
+   */
+  public function borrow(BooksDataTable $dataTable)
+  {
+//    // Get the currently logged-in user's ID
+//    $user_id = Auth::user()->id;
+//
+//    // Get all the books borrowed by the user
+//    $datas = User::find($user_id)->pinjams;
+
+    // Return the library page view with library data borrowed
+    return $dataTable->render('pages.library.index');
+  }
+
   /**
    * Display a listing of the resource.
    */

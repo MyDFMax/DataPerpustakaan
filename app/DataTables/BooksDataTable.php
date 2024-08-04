@@ -30,7 +30,9 @@ class BooksDataTable extends DataTable
       ->addColumn('published', function (Book $book) {
         return $book->published->name;
       })
-      ->addColumn('action', 'books.action')
+      ->addColumn('action', function (Book $book) {
+        return view('components.datatable.books.action', compact('book'));
+      })
       ->setRowId('id');
   }
 
@@ -50,20 +52,10 @@ class BooksDataTable extends DataTable
     return $this->builder()
       ->setTableId('books-table')
       ->searchPanes(SearchPane::make())
-//      ->dom('lrtip')
       ->columns($this->getColumns())
       ->minifiedAjax()
-      ->dom('BfrtipP ')
-      ->orderBy(1)
-      ->selectStyleSingle()
-      ->buttons([
-        Button::make('excel'),
-        Button::make('csv'),
-        Button::make('pdf'),
-        Button::make('print'),
-        Button::make('reset'),
-        Button::make('reload')
-      ]);
+      ->dom('<"wrapper"<"row align-items-center"<"col"l><"col text-end"f>rtip>>')
+      ->orderBy(1);
   }
 
   /**

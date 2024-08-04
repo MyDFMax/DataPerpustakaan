@@ -9,13 +9,21 @@ git clone https://github.com/MyDFMax/DataPerpustakaan.git
 cp .env.example .env
 ```
 ```bash
+composer install
+npm install
+```
+```bash
 php artisan key:generate
+npm run build 
 ```
 ```bash
 php artisan migrate
 ```
 ```bash
 php artisan db:seed
+```
+```bash
+php artisan serve
 ```
 
 ## Cara login
